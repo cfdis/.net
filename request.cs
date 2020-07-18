@@ -8,15 +8,15 @@ class Request {
     string endpoint;
     string apiId;
     string apiSecret;
-    public Request(string apiId, string apiSecret,bool pruebas=true){
+    public Request(string apiId, string apiSecret,bool production = false){
 
         this.apiId=apiId;
         this.apiSecret=apiSecret;
-        if(pruebas){
+        if(production){
+            endpoint="https://backend.facturabilidad.com/api";
+        }else{
             endpoint="http://backend.demo.facturabilidad.com/api";
             //endpoint="http://local.backend.facturabilidad.com/api";
-        }else{
-            endpoint="https://backend.facturabilidad.com/api";
         }
     }
     public string timbrar(string json){
